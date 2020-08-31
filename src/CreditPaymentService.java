@@ -1,7 +1,15 @@
 
 public class CreditPaymentService {
-    public double calculate(float creditmoney, double percentagerate, int limitperiod) {
 
-        float creditpaymentservice = creditmoney * (percentagerate * (1 + percentagerate) ^ limitperiod / ((1 + percentagerate) ^ limitperiod - 1));
+
+    public float calculate(float creditmoney, double percentagerate, long limitperiod) {
+
+        double a1 = (1 + percentagerate);
+        float b1 = limitperiod;
+
+        
+        float creditPaymentservice = (float) ((percentagerate * Math.pow(a1, b1)) / (Math.pow(a1, b1) - 1) * creditmoney);
+
+        return (float) creditPaymentservice;
     }
 }
